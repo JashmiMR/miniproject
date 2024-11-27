@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caste Certificate Application Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2, h1 {
+            text-align: center;
+            color: #333;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"], input[type="date"], input[type="email"], textarea, select, input[type="file"] {
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button[type="submit"], .otp-button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button[type="submit"]:hover, .otp-button:hover {
+            background-color: #218838;
+        }
+        .custom-file-upload {
+            display: inline-block;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        .file-uploads input[type="file"] {
+            display: none;
+        }
+        fieldset {
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        .bottom-right-buttons {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .otp-input {
+            padding: 5px;
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Caste Certificate Application Form</h1>
+        <form action="/submit-caste-certificate" method="POST" enctype="multipart/form-data">
+            <fieldset>
+                <legend>Personal Details</legend>
+                <label for="name">Name (in Block Letters):</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender" required>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" name="dob" required>
+
+                <label for="occupation">Occupation of Applicant:</label>
+                <input type="text" id="occupation" name="occupation">
+
+                <label for="residence">Residence Address:</label>
+                <textarea id="residence" name="residence" required></textarea>
+
+                <label for="permanent">Permanent Address:</label>
+                <textarea id="permanent" name="permanent" required></textarea>
+
+                <label for="phone">Phone No. (OTP verification):</label>
+                <input type="text" id="phone" name="phone" maxlength="10" required>
+                <button type="button" class="otp-button">Send OTP</button>
+                <input type="text" id="otp" name="otp" class="otp-input" placeholder="Enter OTP" style="display:none;">
+            </fieldset>
+
+            <fieldset>
+                <legend>Caste Details</legend>
+                <label for="fatherName">Father's Name:</label>
+                <input type="text" id="fatherName" name="fatherName" required>
+
+                <label for="fatherOccupation">Father's Occupation:</label>
+                <input type="text" id="fatherOccupation" name="fatherOccupation">
+
+                <label for="motherName">Mother's Name:</label>
+                <input type="text" id="motherName" name="motherName" required>
+
+                <label for="motherOccupation">Mother's Occupation:</label>
+                <input type="text" id="motherOccupation" name="motherOccupation">
+
+                <label for="caste">Caste:</label>
+                <input type="text" id="caste" name="caste" required>
+
+                <label for="subCaste">Sub-caste:</label>
+                <input type="text" id="subCaste" name="subCaste">
+
+                <label for="religion">Religion:</label>
+                <input type="text" id="religion" name="religion" required>
+
+                <label for="nationality">Nationality:</label>
+                <input type="text" id="nationality" name="nationality" required>
+            </fieldset>
+
+            <fieldset>
+                <legend>Upload Required Documents</legend>
+                <label for="rationCard" class="custom-file-upload">Ration Card:</label>
+                <input type="file" id="rationCard" name="rationCard" accept=".pdf,.jpg,.jpeg,.png" required>
+
+                <label for="aadharApplicant" class="custom-file-upload">Aadhar Card of Applicant:</label>
+                <input type="file" id="aadharApplicant" name="aadharApplicant" accept=".pdf,.jpg,.jpeg,.png" required>
+
+                <label for="aadharParents" class="custom-file-upload">Aadhar Card of Father/Mother:</label>
+                <input type="file" id="aadharParents" name="aadharParents" accept=".pdf,.jpg,.jpeg,.png" required>
+
+                <label for="incomeCert" class="custom-file-upload">Income Certificate:</label>
+                <input type="file" id="incomeCert" name="incomeCert" accept=".pdf,.jpg,.jpeg,.png" required>
+            </fieldset>
+
+            <button type="submit">Submit Application</button>
+            <script src="casteCertificate.js"></script>
+            <script src="app.js"></script>
+        </form>
+    </div>
+</body>
+</html>
